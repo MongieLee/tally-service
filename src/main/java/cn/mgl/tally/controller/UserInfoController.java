@@ -1,9 +1,12 @@
 package cn.mgl.tally.controller;
 
 import cn.mgl.tally.converter.c2s.UserInfoC2SConverter;
+import cn.mgl.tally.exception.InvalidParameterException;
 import cn.mgl.tally.model.service.UserInfo;
 import cn.mgl.tally.service.UserInfoService;
+import lombok.extern.slf4j.Slf4j;
 import lombok.val;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +24,11 @@ public class UserInfoController {
     }
 
     @GetMapping("{id}")
-    public UserInfo getUserInfoById(@PathVariable("id") long id) {
+    public ResponseEntity<UserInfo> getUserInfoById(@PathVariable("id") Long id) {
         val userInfo = userInfoService.getUserInfoById(id);
-        return userInfoC2SConverter.convert(userInfo);
+        if (id == null || id < 0L) {
+            throw new InvalidParameterException(String.format("The user id : %s is invalid", id));
+        }
+        return ResponseEntity.ok(userInfoC2SConverter.convert(userInfo));
     }
 }
