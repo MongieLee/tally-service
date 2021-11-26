@@ -1,4 +1,4 @@
-package cn.mgl.tally.entitys;
+package cn.mgl.tally.entity;
 
 public class Greeting {
     private Long id;

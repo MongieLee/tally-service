@@ -1,6 +1,6 @@
-package cn.mgl.tally.controllers;
+package cn.mgl.tally.controller;
 
-import cn.mgl.tally.entitys.Greeting;
+import cn.mgl.tally.entity.Greeting;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;

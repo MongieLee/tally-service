@@ -1,2 +1,8 @@
 server:
   port: 8000
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/tally_test?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: mongielee
+    driver-class-name: com.mysql.cj.jdbc.Driver
