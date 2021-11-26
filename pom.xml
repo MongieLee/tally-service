@@ -33,6 +33,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -40,6 +44,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.flywaydb.enterprise</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>8.1.0</version>
+                <configuration>
+                    <url>jdbc:mysql://localhost:3306</url>
+                    <user>root</user>
+                    <password>mongielee</password>
+                    <schemas>
+                        <schema>schema</schema>
+                    </schemas>
+                </configuration>
             </plugin>
         </plugins>
     </build>
